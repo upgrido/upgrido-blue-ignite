@@ -73,7 +73,7 @@ const CurriculumSection = () => {
               className="relative bg-card rounded-2xl p-5 card-border overflow-hidden"
             >
               {mod.isNew && (
-                <span className="absolute top-4 right-4 bg-purple-600 text-foreground text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
+                <span className="absolute top-4 right-4 bg-accent/60 text-foreground text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
                   💎 New
                 </span>
               )}
