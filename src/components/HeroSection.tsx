@@ -49,16 +49,16 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Subtext */}
-        <p className="text-muted-foreground text-base mb-8 max-w-xs">
-          Learning in a space that feels like a friend guiding them
+        <p className="text-muted-foreground text-base mb-8 max-w-sm">
+          the ultimate beginner-friendly video editing cohort, now powered with the most insane AI tools ever.
         </p>
 
         {/* CTA */}
         <a
-          href="#"
+          href="#pricing"
           className="w-full py-4 rounded-full bg-primary text-primary-foreground font-bold text-lg text-center glow-button animate-pulse-glow block"
         >
-          Join Now
+          Join now
         </a>
       </motion.div>
     </section>
