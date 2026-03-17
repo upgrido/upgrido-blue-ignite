@@ -1,28 +1,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronUp, ChevronDown } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 
 const faqs = [
-  {
-    q: "Who is this cohort for?",
-    a: "This cohort is for beginners and intermediate editors who want to learn professional video editing using Premiere Pro and After Effects. It is ideal for students, creators, freelancers, and anyone who wants to build a career in editing and content creation.",
-  },
-  {
-    q: "How many months does this cohort run?",
-    a: "The cohort runs for 90 days (approximately 3 months) with structured modules, live sessions, and community support throughout.",
-  },
-  {
-    q: "What do I need before joining the cohort?",
-    a: "You need a laptop or PC with at least 8GB RAM, a stable internet connection, and the willingness to learn. No prior editing experience is required.",
-  },
-  {
-    q: "What will I get in the community?",
-    a: "You'll get access to a private community of fellow editors, weekly feedback sessions, networking opportunities, and direct mentorship from Sekhar Polina.",
-  },
+  { q: "WHAT IS THE DURATION OF THE COHORT?", a: "The cohort runs for 90 days (approximately 3 months) with structured modules, live sessions, and community support throughout." },
+  { q: "HOW LONG WILL I HAVE ACCESS TO THE CONTENT?", a: "You will have lifetime access to all the recorded content and resources shared during the cohort." },
+  { q: "WHAT EDITING SOFTWARE DO YOU TEACH?", a: "We teach Adobe Premiere Pro, Adobe After Effects, and DaVinci Resolve for color grading." },
+  { q: "I'M UNABLE TO ACCESS THE COHORT CONTENT, WHAT SHOULD I DO?", a: "Please reach out to us on WhatsApp or email at hello@tharunspeaks.in and our team will help you within 24 hours." },
+  { q: "DO YOU TEACH VIDEO EDITING FROM THE BASICS?", a: "Yes! This cohort is completely beginner-friendly. We start from the very basics and take you to an advanced level." },
+  { q: "DO I NEED TO BUY THE SOFTWARE AFTER JOINING THE COHORT?", a: "We'll guide you on how to get started with the software. Details will be shared once you join the cohort." },
+  { q: "DO YOU GUARANTEE PLACEMENTS FOR STUDENTS IN THE ULTIMATE BATCH?", a: "We provide placement assistance and connect you with hiring partners. Ultimate batch students get priority access to placement opportunities worth 30k/month." },
+  { q: "WHAT DO YOU COVER IN THE SOCIAL MEDIA MASTERCLASS?", a: "The masterclass covers content strategy, audience building, monetization, personal branding, and growth hacking for platforms like YouTube and Instagram." },
 ];
 
 const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
 
   return (
     <section id="faq" className="py-16 px-4">
@@ -34,12 +26,8 @@ const FAQSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-          <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-3">
-            GOT QUESTIONS?
-          </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-            Frequently Asked{" "}
-            <span className="text-primary">Questions</span>
+            Got Questions?
           </h2>
         </motion.div>
 
@@ -52,21 +40,21 @@ const FAQSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
                 className="bg-card rounded-2xl card-border overflow-hidden"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : i)}
                   className="w-full flex items-center justify-between p-4 text-left"
                 >
-                  <span className="font-semibold text-foreground text-sm pr-4">
+                  <span className="font-bold text-foreground text-xs uppercase tracking-wide pr-4">
                     {faq.q}
                   </span>
-                  <span className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                  <span className="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                     {isOpen ? (
-                      <ChevronUp size={16} className="text-primary" />
+                      <Minus size={14} className="text-primary" />
                     ) : (
-                      <ChevronDown size={16} className="text-primary" />
+                      <Plus size={14} className="text-primary" />
                     )}
                   </span>
                 </button>
@@ -88,18 +76,6 @@ const FAQSection = () => {
             );
           })}
         </div>
-
-        <p className="text-center text-sm text-muted-foreground mt-8">
-          Still have questions?{" "}
-          <a
-            href="https://wa.me/919398819250"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary font-semibold hover:underline"
-          >
-            Message us on WhatsApp
-          </a>
-        </p>
       </div>
     </section>
   );

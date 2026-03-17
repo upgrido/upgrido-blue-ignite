@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,44 +9,45 @@
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
 
-    --card: 210 64% 7%;
+    --card: 0 0% 7%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 210 64% 7%;
+    --popover: 0 0% 7%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 217 100% 58%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 72 100% 50%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 210 64% 10%;
+    --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 217 100% 62%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 72 100% 50%;
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 100% 27%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 50% 20%;
-    --input: 217 50% 20%;
-    --ring: 217 100% 58%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 72 100% 50%;
 
     --radius: 1rem;
 
     --surface-dark: 0 0% 5%;
-    --glow-blue: 217 100% 58%;
+    --royal-blue: 225 100% 40%;
+    --crimson: 0 100% 27%;
 
     --sidebar-background: 0 0% 3%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 217 100% 58%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 217 50% 15%;
+    --sidebar-primary: 72 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 72 50% 15%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 217 50% 15%;
-    --sidebar-ring: 217 100% 58%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 72 100% 50%;
   }
 }
 
@@ -71,23 +72,53 @@
   }
 
   .glow-button {
-    box-shadow: 0 0 20px hsl(217 100% 58% / 0.5), 0 0 60px hsl(217 100% 58% / 0.2);
+    box-shadow: 0 0 20px hsl(72 100% 50% / 0.5), 0 0 60px hsl(72 100% 50% / 0.2);
     transition: box-shadow 0.3s ease;
   }
 
   .glow-button:hover {
-    box-shadow: 0 0 30px hsl(217 100% 58% / 0.7), 0 0 80px hsl(217 100% 58% / 0.3);
+    box-shadow: 0 0 30px hsl(72 100% 50% / 0.7), 0 0 80px hsl(72 100% 50% / 0.3);
   }
 
   .glow-navbar {
-    box-shadow: 0 0 40px hsl(217 100% 58% / 0.3), 0 0 80px hsl(217 100% 58% / 0.1);
+    box-shadow: 0 0 40px hsl(72 100% 50% / 0.3), 0 0 80px hsl(72 100% 50% / 0.1);
   }
 
   .card-border {
-    border: 1px solid hsl(217 50% 20% / 0.6);
+    border: 1px solid hsl(0 0% 18% / 0.6);
   }
 
-  .text-gradient-blue {
+  .text-gradient-lime {
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .bg-royal-blue {
+    background-color: hsl(225 100% 40%);
+  }
+
+  .bg-crimson {
+    background-color: hsl(0 100% 27%);
+  }
+
+  .torn-edge-top {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0 20 L0 8 L30 12 L60 5 L90 15 L120 3 L150 10 L180 7 L210 14 L240 4 L270 11 L300 8 L330 16 L360 2 L390 13 L420 6 L450 15 L480 4 L510 12 L540 7 L570 14 L600 3 L630 11 L660 8 L690 16 L720 5 L750 13 L780 6 L810 15 L840 3 L870 10 L900 7 L930 14 L960 4 L990 12 L1020 8 L1050 16 L1080 5 L1110 13 L1140 6 L1170 15 L1200 8 L1200 20 Z' fill='white'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0 20 L0 8 L30 12 L60 5 L90 15 L120 3 L150 10 L180 7 L210 14 L240 4 L270 11 L300 8 L330 16 L360 2 L390 13 L420 6 L450 15 L480 4 L510 12 L540 7 L570 14 L600 3 L630 11 L660 8 L690 16 L720 5 L750 13 L780 6 L810 15 L840 3 L870 10 L900 7 L930 14 L960 4 L990 12 L1020 8 L1050 16 L1080 5 L1110 13 L1140 6 L1170 15 L1200 8 L1200 20 Z' fill='white'/%3E%3C/svg%3E");
+    mask-size: 100% 20px;
+    -webkit-mask-size: 100% 20px;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: top;
+    -webkit-mask-position: top;
+  }
+
+  .torn-edge-bottom {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0 0 L0 12 L30 8 L60 15 L90 5 L120 17 L150 10 L180 13 L210 6 L240 16 L270 9 L300 12 L330 4 L360 18 L390 7 L420 14 L450 5 L480 16 L510 8 L540 13 L570 6 L600 17 L630 9 L660 12 L690 4 L720 15 L750 7 L780 14 L810 5 L840 17 L870 10 L900 13 L930 6 L960 16 L990 8 L1020 12 L1050 4 L1080 15 L1110 7 L1140 14 L1170 5 L1200 12 L1200 0 Z' fill='white'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0 0 L0 12 L30 8 L60 15 L90 5 L120 17 L150 10 L180 13 L210 6 L240 16 L270 9 L300 12 L330 4 L360 18 L390 7 L420 14 L450 5 L480 16 L510 8 L540 13 L570 6 L600 17 L630 9 L660 12 L690 4 L720 15 L750 7 L780 14 L810 5 L840 17 L870 10 L900 13 L930 6 L960 16 L990 8 L1020 12 L1050 4 L1080 15 L1110 7 L1140 14 L1170 5 L1200 12 L1200 0 Z' fill='white'/%3E%3C/svg%3E");
+    mask-size: 100% 20px;
+    -webkit-mask-size: 100% 20px;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: bottom;
+    -webkit-mask-position: bottom;
   }
 }

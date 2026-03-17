@@ -3,32 +3,45 @@ import { motion } from "framer-motion";
 const modules = [
   {
     num: "1",
-    title: "A to Z Video Editing (Premiere Pro + After Effects)",
+    title: "Advanced Video Editing",
+    subtitle: "Unleash your creativity with cutting-edge AI tools for design, content, and video.",
     items: [
-      "Premiere Pro from basics to advanced workflow",
-      "Motion graphics and animation in After Effects",
-      "Core design fundamentals every editor needs for visual storytelling",
+      "A → Z of Video Editing",
+      "Advanced Motion Graphics in Adobe After Effects",
+      "Advanced Color Grading in Davinci Resolve",
     ],
+    cta: true,
   },
   {
     num: "2",
-    title: "Storytelling & Content Thinking",
+    title: "Social Media Growth",
     items: [
-      "Understanding hooks and viewer retention",
-      "Structuring short-form and long-form content",
-      "Editing for emotion, pacing, and impact",
-      "Thinking like a creator, not just an editor",
+      "Content Planning & Packaging",
+      "Scripting",
+      "Storytelling",
+      "SEO",
+      "Basics of Cinematography",
     ],
-    emoji: "📚",
+    bgDecor: "graph",
   },
   {
     num: "3",
-    title: "Build & Monetise Your Skill",
+    title: "Freelancing & Agency Building",
     items: [
-      "Finding the right clients and pitching with clarity",
-      "Building a freelance income from editing",
-      "Growing your personal brand as a creator-editor",
+      "How, where & when to reach out to clients?",
+      "Basics of Marketing",
+      "How to Negotiate Prices?",
+      "How to Scale an Agency?",
     ],
+    bgDecor: "abstract",
+  },
+  {
+    num: "4",
+    title: "Introducing the AI Creative Studio",
+    subtitle: "Unleash your creativity with cutting-edge AI tools for design, content, and video.",
+    items: [],
+    isNew: true,
+    italic: true,
   },
 ];
 
@@ -44,13 +57,8 @@ const CurriculumSection = () => {
           className="text-center mb-10"
         >
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground leading-snug">
-            What you will{" "}
-            <span className="text-primary">learn</span>{" "}
-            in these{" "}
-            <span className="inline-flex items-center justify-center bg-secondary text-foreground font-bold text-lg px-3 py-0.5 rounded-full mx-1">
-              90
-            </span>{" "}
-            <span className="text-primary">Days</span>
+            <span className="font-display italic">What you'll learn</span>{" "}
+            in this Cohort
           </h2>
         </motion.div>
 
@@ -61,25 +69,50 @@ const CurriculumSection = () => {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="relative bg-card rounded-2xl p-5 card-border"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="relative bg-card rounded-2xl p-5 card-border overflow-hidden"
             >
-              <h3 className="text-lg font-bold text-foreground mb-3">
+              {mod.isNew && (
+                <span className="absolute top-4 right-4 bg-accent/60 text-foreground text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
+                  💎 New
+                </span>
+              )}
+
+              {mod.bgDecor === "graph" && (
+                <div className="absolute inset-0 opacity-5">
+                  <svg className="w-full h-full" viewBox="0 0 200 100">
+                    <polyline fill="none" stroke="currentColor" strokeWidth="1" points="0,80 30,60 60,70 90,30 120,50 150,20 180,40 200,10" />
+                  </svg>
+                </div>
+              )}
+
+              <h3 className={`text-lg font-bold text-foreground mb-2 ${mod.italic ? "font-display italic" : ""}`}>
                 <span className="text-primary mr-2">{mod.num}</span>
                 {mod.title}
               </h3>
-              <ul className="space-y-2">
-                {mod.items.map((item, j) => (
-                  <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="text-primary mt-0.5 shrink-0">✦</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              {mod.emoji && (
-                <span className="absolute bottom-3 right-4 text-3xl opacity-80">
-                  {mod.emoji}
-                </span>
+
+              {mod.subtitle && (
+                <p className="text-xs text-muted-foreground mb-3">{mod.subtitle}</p>
+              )}
+
+              {mod.cta && (
+                <a
+                  href="#pricing"
+                  className="inline-block mb-4 px-6 py-2 rounded-full bg-primary text-primary-foreground font-bold text-sm glow-button"
+                >
+                  Join now
+                </a>
+              )}
+
+              {mod.items.length > 0 && (
+                <ul className="space-y-2">
+                  {mod.items.map((item, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="text-primary mt-0.5 shrink-0">+</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               )}
             </motion.div>
           ))}
