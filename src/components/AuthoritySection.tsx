@@ -2,10 +2,8 @@ import { motion } from "framer-motion";
 import sekharAvatar from "@/assets/sekhar-avatar.png";
 
 const socialProof = [
-  { name: "Indian Video School", platform: "Instagram", count: "65.9k Followers" },
-  { name: "Tharun Speaks", platform: "YouTube", count: "846K Subscribers" },
-  { name: "Quantum Project", platform: "YouTube", count: "501K Subscribers" },
-  { name: "Tharun Naik", platform: "Instagram", count: "234k Followers", link: "https://www.instagram.com/sekhar.polinaa?igsh=ajJsNWllY2J6dWVo" },
+  { name: "sekhar.polinaa", platform: "Instagram", count: "65.9k Followers", link: "https://www.instagram.com/sekhar.polinaa?igsh=ajJsNWllY2J6dWVo" },
+  { name: "sekhar.polinaa", platform: "YouTube", count: "846K Subscribers", link: "https://youtube.com/@sekharpolinaa?si=Zf9iLBu8iRz5aNmL" },
 ];
 
 const AuthoritySection = () => {
@@ -37,13 +35,16 @@ const AuthoritySection = () => {
 
         <div className="grid grid-cols-2 gap-3 mt-10">
           {socialProof.map((item, i) => (
-            <motion.div
+            <motion.a
               key={i}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="bg-card rounded-2xl p-4 card-border flex flex-col items-center text-center gap-2"
+              className="bg-card rounded-2xl p-4 card-border flex flex-col items-center text-center gap-2 hover:bg-muted/50 transition-colors"
             >
               <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
                 <img src={sekharAvatar} alt={item.name} className="w-8 h-8 rounded-full object-cover" />
@@ -57,7 +58,7 @@ const AuthoritySection = () => {
                 )}
                 <span className="text-[10px] text-muted-foreground">{item.count}</span>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

@@ -17,14 +17,16 @@ const Footer = () => {
             alt="Sekhar Polina"
             className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-primary/30"
           />
-          <h3 className="text-lg font-bold text-foreground mb-1">tharunspeaks.in</h3>
+          <a href="https://upgridolearn.in/" target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-foreground mb-1 hover:text-primary transition-colors">
+            upgridolearn.in
+          </a>
           <p className="text-xs text-muted-foreground max-w-sm leading-relaxed">
             the ultimate beginner-friendly video editing cohort, now powered with the most insane AI tools ever.
           </p>
           <p className="text-xs text-muted-foreground mt-3">
-            Get in Touch:{" "}
-            <a href="mailto:hello@tharunspeaks.in" className="text-primary hover:underline">
-              hello@tharunspeaks.in
+            Still have questions?{" "}
+            <a href="https://wa.me/919398819250" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
+              Message us on WhatsApp
             </a>
           </p>
         </motion.div>

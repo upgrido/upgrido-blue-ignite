@@ -15,8 +15,8 @@
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 72 100% 50%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 217 100% 60%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 100%;
@@ -24,15 +24,15 @@
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 72 100% 50%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 217 100% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 100% 27%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 18%;
     --input: 0 0% 18%;
-    --ring: 72 100% 50%;
+    --ring: 217 100% 60%;
 
     --radius: 1rem;
 
@@ -42,12 +42,12 @@
 
     --sidebar-background: 0 0% 3%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 72 100% 50%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 72 50% 15%;
+    --sidebar-primary: 217 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 50% 15%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 72 100% 50%;
+    --sidebar-ring: 217 100% 60%;
   }
 }
 
@@ -72,16 +72,16 @@
   }
 
   .glow-button {
-    box-shadow: 0 0 20px hsl(72 100% 50% / 0.5), 0 0 60px hsl(72 100% 50% / 0.2);
+    box-shadow: 0 0 20px hsl(217 100% 60% / 0.5), 0 0 60px hsl(217 100% 60% / 0.2);
     transition: box-shadow 0.3s ease;
   }
 
   .glow-button:hover {
-    box-shadow: 0 0 30px hsl(72 100% 50% / 0.7), 0 0 80px hsl(72 100% 50% / 0.3);
+    box-shadow: 0 0 30px hsl(217 100% 60% / 0.7), 0 0 80px hsl(217 100% 60% / 0.3);
   }
 
   .glow-navbar {
-    box-shadow: 0 0 40px hsl(72 100% 50% / 0.3), 0 0 80px hsl(72 100% 50% / 0.1);
+    box-shadow: 0 0 40px hsl(217 100% 60% / 0.3), 0 0 80px hsl(217 100% 60% / 0.1);
   }
 
   .card-border {
