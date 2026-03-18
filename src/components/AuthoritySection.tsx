@@ -5,7 +5,7 @@ const socialProof = [
   { name: "Indian Video School", platform: "Instagram", count: "65.9k Followers" },
   { name: "Tharun Speaks", platform: "YouTube", count: "846K Subscribers" },
   { name: "Quantum Project", platform: "YouTube", count: "501K Subscribers" },
-  { name: "Tharun Naik", platform: "Instagram", count: "234k Followers" },
+  { name: "Tharun Naik", platform: "Instagram", count: "234k Followers", link: "https://www.instagram.com/sekhar.polinaa?igsh=ajJsNWllY2J6dWVo" },
 ];
 
 const AuthoritySection = () => {
