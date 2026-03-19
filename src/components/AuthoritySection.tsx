@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import sekharAvatar from "@/assets/sekhar-avatar.png";
+import sekharLogo from "@/assets/sekhar-logo.png";
 
 const socialProof = [
   { name: "sekhar.polinaa", platform: "Instagram", count: "65.9k Followers", link: "https://www.instagram.com/sekhar.polinaa?igsh=ajJsNWllY2J6dWVo" },
