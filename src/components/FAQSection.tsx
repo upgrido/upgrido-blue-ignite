@@ -17,16 +17,18 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(-1);
 
   return (
-    <section id="faq" className="py-16 px-4">
+    <section id="faq" className="py-20 px-5 relative">
+      <div className="section-divider w-full absolute top-0 left-0" />
+
       <div className="max-w-lg mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center mb-12"
         >
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-3 font-medium">
             GOT QUESTIONS?
           </p>
           <h2 className="text-2xl sm:text-3xl font-black text-foreground">
@@ -45,21 +47,23 @@ const FAQSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="bg-card rounded-2xl card-border overflow-hidden"
+                transition={{ duration: 0.4, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }}
+                className="rounded-2xl overflow-hidden card-elevated"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : i)}
-                  className="w-full flex items-center justify-between p-4 text-left"
+                  className="w-full flex items-center justify-between p-5 text-left group"
                 >
-                  <span className="font-bold text-foreground text-xs uppercase tracking-wide pr-4">
+                  <span className="font-semibold text-foreground text-xs uppercase tracking-wide pr-4 group-hover:text-primary transition-colors duration-200">
                     {faq.q}
                   </span>
-                  <span className="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                  <span className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 ${
+                    isOpen ? "bg-primary/20 rotate-0" : "bg-secondary/60"
+                  }`}>
                     {isOpen ? (
                       <Minus size={14} className="text-primary" />
                     ) : (
-                      <Plus size={14} className="text-primary" />
+                      <Plus size={14} className="text-muted-foreground" />
                     )}
                   </span>
                 </button>
@@ -69,9 +73,9 @@ const FAQSection = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      <p className="px-4 pb-4 text-sm text-muted-foreground leading-relaxed">
+                      <p className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">
                         {faq.a}
                       </p>
                     </motion.div>
