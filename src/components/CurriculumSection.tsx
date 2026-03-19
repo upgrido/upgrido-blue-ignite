@@ -3,45 +3,41 @@ import { motion } from "framer-motion";
 const modules = [
   {
     num: "1",
-    title: "Advanced Video Editing",
-    subtitle: "Unleash your creativity with cutting-edge AI tools for design, content, and video.",
+    title: "A to Z Video Editing\n(Premiere Pro + After Effects)",
     items: [
-      "A → Z of Video Editing",
-      "Advanced Motion Graphics in Adobe After Effects",
-      "Advanced Color Grading in Davinci Resolve",
+      "Premiere Pro — from basics to advanced workflow",
+      "Motion graphics and animation in After Effects",
+      "Core design fundamentals every editor needs for visual storytelling",
     ],
-    cta: true,
   },
   {
     num: "2",
-    title: "Social Media Growth",
+    title: "Storytelling & Content Thinking",
     items: [
-      "Content Planning & Packaging",
-      "Scripting",
-      "Storytelling",
-      "SEO",
-      "Basics of Cinematography",
+      "Understanding hooks and viewer retention",
+      "Structuring short-form and long-form content",
+      "Editing for emotion, pacing, and impact",
+      "Thinking like a creator, not just an editor",
     ],
-    bgDecor: "graph",
   },
   {
     num: "3",
-    title: "Freelancing & Agency Building",
+    title: "Build & Monetise Your Skill",
     items: [
-      "How, where & when to reach out to clients?",
-      "Basics of Marketing",
-      "How to Negotiate Prices?",
-      "How to Scale an Agency?",
+      "Finding the right clients and pitching with clarity",
+      "Negotiating your pricing with confidence",
+      "Building a portfolio that proves your ability",
     ],
-    bgDecor: "abstract",
   },
   {
     num: "4",
-    title: "Introducing the AI Creative Studio",
-    subtitle: "Unleash your creativity with cutting-edge AI tools for design, content, and video.",
-    items: [],
-    isNew: true,
-    italic: true,
+    title: "Personal Branding",
+    items: [
+      "Transforming from editor to creator",
+      "Documenting your growth publicly",
+      "Building authority through your work",
+      "Turning editing into a long-term advantage",
+    ],
   },
 ];
 
@@ -57,12 +53,19 @@ const CurriculumSection = () => {
           className="text-center mb-10"
         >
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground leading-snug">
-            <span className="font-display italic">What you'll learn</span>{" "}
-            in this Cohort
+            What you will{" "}
+            <span className="text-primary font-black">learn</span> in
+            <br />
+            these{" "}
+            <span className="inline-flex items-center gap-1.5 bg-card rounded-full px-3 py-0.5 card-border text-foreground">
+              <span className="text-sm">📅</span>
+              <span className="font-black">90</span>
+            </span>{" "}
+            <span className="text-primary font-black">Days</span>
           </h2>
         </motion.div>
 
-        <div className="space-y-4">
+        <div className="space-y-5">
           {modules.map((mod, i) => (
             <motion.div
               key={mod.num}
@@ -72,48 +75,23 @@ const CurriculumSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="relative bg-card rounded-2xl p-5 card-border overflow-hidden"
             >
-              {mod.isNew && (
-                <span className="absolute top-4 right-4 bg-accent/60 text-foreground text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
-                  💎 New
+              <div className="flex items-start gap-3 mb-3">
+                <span className="text-4xl font-black text-muted-foreground/30 leading-none">
+                  {mod.num}
                 </span>
-              )}
+                <h3 className="text-lg font-bold text-foreground whitespace-pre-line leading-tight">
+                  {mod.title}
+                </h3>
+              </div>
 
-              {mod.bgDecor === "graph" && (
-                <div className="absolute inset-0 opacity-5">
-                  <svg className="w-full h-full" viewBox="0 0 200 100">
-                    <polyline fill="none" stroke="currentColor" strokeWidth="1" points="0,80 30,60 60,70 90,30 120,50 150,20 180,40 200,10" />
-                  </svg>
-                </div>
-              )}
-
-              <h3 className={`text-lg font-bold text-foreground mb-2 ${mod.italic ? "font-display italic" : ""}`}>
-                <span className="text-primary mr-2">{mod.num}</span>
-                {mod.title}
-              </h3>
-
-              {mod.subtitle && (
-                <p className="text-xs text-muted-foreground mb-3">{mod.subtitle}</p>
-              )}
-
-              {mod.cta && (
-                <a
-                  href="#pricing"
-                  className="inline-block mb-4 px-6 py-2 rounded-full bg-primary text-primary-foreground font-bold text-sm glow-button"
-                >
-                  Join now
-                </a>
-              )}
-
-              {mod.items.length > 0 && (
-                <ul className="space-y-2">
-                  {mod.items.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="text-primary mt-0.5 shrink-0">+</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <ul className="space-y-2.5 ml-1">
+                {mod.items.map((item, j) => (
+                  <li key={j} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                    <span className="text-primary mt-0.5 shrink-0">?</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>

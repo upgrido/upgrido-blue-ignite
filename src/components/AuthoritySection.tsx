@@ -47,7 +47,7 @@ const AuthoritySection = () => {
               className="bg-card rounded-2xl p-4 card-border flex flex-col items-center text-center gap-2 hover:bg-muted/50 transition-colors"
             >
               <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                <img src={sekharAvatar} alt={item.name} className="w-8 h-8 rounded-full object-cover" />
+                <img src={sekharLogo} alt={item.name} className="w-8 h-8 rounded-full object-cover" />
               </div>
               <p className="text-xs font-semibold text-foreground leading-tight">{item.name}</p>
               <div className="flex items-center gap-1">
