@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
-import sekharAvatar from "@/assets/sekhar-avatar.png";
+import sekharLogo from "@/assets/sekhar-logo.png";
 import videoThumbnail from "@/assets/video-thumbnail.jpg";
 
 const HeroSection = () => {
