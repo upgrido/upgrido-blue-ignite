@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import sekharAvatar from "@/assets/sekhar-avatar.png";
+import sekharLogo from "@/assets/sekhar-logo.png";
 
 const companies = [
   { name: "Google", color: "from-blue-400 via-red-400 via-yellow-400 to-green-400", letter: "G" },
