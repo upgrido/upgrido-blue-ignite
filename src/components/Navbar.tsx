@@ -21,50 +21,63 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-lg rounded-2xl px-5 py-3 flex items-center justify-between transition-all duration-500 ${
+      className={`fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-lg rounded-2xl px-5 py-3 flex items-center justify-between transition-all duration-700 ${
         scrolled
-          ? "bg-secondary/80 backdrop-blur-xl glow-navbar"
-          : "bg-secondary/60 backdrop-blur-md"
+          ? "bg-background/70 backdrop-blur-2xl border border-border/40 glow-navbar"
+          : "bg-background/40 backdrop-blur-lg border border-transparent"
       }`}
     >
-      <a href="#" className="font-display text-xl font-bold text-foreground tracking-wide">
-        Upgraido
+      <a href="#" className="text-lg font-bold text-foreground tracking-wide">
+        Upgrido
       </a>
 
       <button
         onClick={() => setMenuOpen(!menuOpen)}
-        className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground"
+        className="w-9 h-9 rounded-xl bg-secondary/80 border border-border/40 flex items-center justify-center text-foreground hover:bg-secondary transition-all duration-200"
         aria-label="Toggle menu"
       >
-        {menuOpen ? <X size={20} /> : <Menu size={20} />}
+        {menuOpen ? <X size={18} /> : <Menu size={18} />}
       </button>
 
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="absolute top-16 right-0 w-56 bg-secondary/95 backdrop-blur-xl rounded-2xl p-4 card-border"
-          >
-            {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="block py-2 px-3 text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted/50 text-sm"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#pricing"
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 -z-10"
               onClick={() => setMenuOpen(false)}
-              className="block mt-2 py-2 px-3 text-center rounded-full bg-primary text-primary-foreground font-bold text-sm"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.96 }}
+              transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+              className="absolute top-14 right-0 w-56 bg-card/95 backdrop-blur-2xl rounded-2xl p-3 card-elevated"
             >
-              Join Now
-            </a>
-          </motion.div>
+              {links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2.5 px-3.5 text-muted-foreground hover:text-foreground transition-all duration-200 rounded-xl hover:bg-secondary/60 text-sm font-medium"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="mt-2 pt-2 border-t border-border/30">
+                <a
+                  href="#pricing"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2.5 px-3.5 text-center rounded-xl bg-primary text-primary-foreground font-semibold text-sm glow-button"
+                >
+                  Join Now
+                </a>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>

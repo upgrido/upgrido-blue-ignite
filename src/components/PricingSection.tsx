@@ -1,15 +1,18 @@
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 const PricingSection = () => {
   return (
-    <section id="pricing" className="py-20 px-4 relative">
-      {/* Dot grid bg */}
+    <section id="pricing" className="py-24 px-5 relative overflow-hidden">
+      <div className="section-divider w-full absolute top-0 left-0" />
+
+      {/* Background effects */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[150px] pointer-events-none" />
       <div
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage:
-            "radial-gradient(circle, hsl(225 100% 40% / 0.3) 1px, transparent 1px)",
-          backgroundSize: "20px 20px",
+          backgroundImage: "radial-gradient(circle, hsl(217 92% 58% / 0.4) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
         }}
       />
 
@@ -18,10 +21,10 @@ const PricingSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center mb-12"
         >
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-4 font-medium">
             WHAT'S YOUR INVESTMENT TO
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-foreground leading-tight">
@@ -36,29 +39,35 @@ const PricingSection = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="relative rounded-2xl p-8 card-border overflow-hidden bg-card text-center"
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="relative rounded-3xl p-8 sm:p-10 overflow-hidden card-elevated text-center"
         >
+          {/* Top glow line */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+
           {/* Money emoji */}
-          <div className="text-4xl mb-4">💰</div>
+          <div className="text-5xl mb-6">💰</div>
 
           {/* Price */}
-          <div className="flex items-center justify-center gap-3 mb-1">
-            <span className="text-lg text-muted-foreground line-through">
+          <div className="flex items-center justify-center gap-4 mb-2">
+            <span className="text-base text-muted-foreground line-through decoration-destructive/50">
               ₹10,000
             </span>
-            <span className="text-sm text-muted-foreground">40%OFF</span>
+            <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold bg-secondary/60 px-2.5 py-1 rounded-full">
+              40% OFF
+            </span>
           </div>
 
-          <p className="text-6xl sm:text-7xl font-black text-foreground mb-8">
+          <p className="text-6xl sm:text-7xl font-black text-foreground mb-10 tracking-tight">
             ₹5999
           </p>
 
           <a
             href="#"
-            className="block w-full max-w-sm mx-auto py-4 rounded-full bg-primary text-primary-foreground font-bold text-lg text-center glow-button"
+            className="flex items-center justify-center gap-2 w-full max-w-sm mx-auto py-4 rounded-2xl bg-primary text-primary-foreground font-bold text-lg text-center glow-button group"
           >
-            Join Now ↗
+            Join Now
+            <ArrowUpRight size={20} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
           </a>
         </motion.div>
       </div>
