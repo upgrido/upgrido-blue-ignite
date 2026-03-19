@@ -1,3 +1,4 @@
+// Upgraded avatar
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import sekharLogo from "@/assets/sekhar-logo.png";
