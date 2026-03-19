@@ -4,7 +4,7 @@ import AuthoritySection from "@/components/AuthoritySection";
 import CurriculumSection from "@/components/CurriculumSection";
 import WhyCohortSection from "@/components/WhyCohortSection";
 import PricingSection from "@/components/PricingSection";
-import HiringSection from "@/components/HiringSection";
+
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
 import FinalCTASection from "@/components/FinalCTASection";
@@ -19,7 +19,7 @@ const Index = () => {
       <CurriculumSection />
       <WhyCohortSection />
       <PricingSection />
-      <HiringSection />
+      
       <TestimonialsSection />
       <FAQSection />
       <FinalCTASection />
