@@ -6,7 +6,7 @@ const faqs = [
   { q: "WHAT IS THE DURATION OF THE COHORT?", a: "The cohort runs for 90 days (approximately 3 months) with structured modules, live sessions, and community support throughout." },
   { q: "HOW LONG WILL I HAVE ACCESS TO THE CONTENT?", a: "You will have lifetime access to all the recorded content and resources shared during the cohort." },
   { q: "WHAT EDITING SOFTWARE DO YOU TEACH?", a: "We teach Adobe Premiere Pro, Adobe After Effects, and DaVinci Resolve for color grading." },
-  { q: "I'M UNABLE TO ACCESS THE COHORT CONTENT, WHAT SHOULD I DO?", a: "Please reach out to us on WhatsApp or email at hello@tharunspeaks.in and our team will help you within 24 hours." },
+  { q: "I'M UNABLE TO ACCESS THE COHORT CONTENT, WHAT SHOULD I DO?", a: "Please reach out to us on WhatsApp and our team will help you within 24 hours." },
   { q: "DO YOU TEACH VIDEO EDITING FROM THE BASICS?", a: "Yes! This cohort is completely beginner-friendly. We start from the very basics and take you to an advanced level." },
   { q: "DO I NEED TO BUY THE SOFTWARE AFTER JOINING THE COHORT?", a: "We'll guide you on how to get started with the software. Details will be shared once you join the cohort." },
   { q: "DO YOU GUARANTEE PLACEMENTS FOR STUDENTS IN THE ULTIMATE BATCH?", a: "We provide placement assistance and connect you with hiring partners. Ultimate batch students get priority access to placement opportunities worth 30k/month." },
@@ -26,8 +26,13 @@ const FAQSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-            Got Questions?
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
+            GOT QUESTIONS?
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-black text-foreground">
+            Frequently Asked
+            <br />
+            <span className="text-primary">Questions</span>
           </h2>
         </motion.div>
 

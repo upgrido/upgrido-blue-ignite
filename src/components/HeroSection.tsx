@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
-import sekharAvatar from "@/assets/sekhar-avatar.png";
+import sekharLogo from "@/assets/sekhar-logo.png";
 import videoThumbnail from "@/assets/video-thumbnail.jpg";
 
 const HeroSection = () => {
@@ -15,7 +15,7 @@ const HeroSection = () => {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-secondary rounded-full pl-1 pr-4 py-1 mb-8">
           <img
-            src={sekharAvatar}
+            src={sekharLogo}
             alt="Sekhar Polina"
             className="w-8 h-8 rounded-full object-cover"
           />

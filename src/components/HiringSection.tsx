@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import sekharAvatar from "@/assets/sekhar-avatar.png";
+import sekharLogo from "@/assets/sekhar-logo.png";
 
 const companies = [
   { name: "Google", color: "from-blue-400 via-red-400 via-yellow-400 to-green-400", letter: "G" },
@@ -56,7 +56,7 @@ const HiringSection = () => {
               <div className="absolute -inset-1 rounded-full bg-primary/30 blur-md group-hover:bg-primary/50 transition-all duration-300" />
               <div className="relative w-16 h-16 rounded-full border-2 border-primary/40 overflow-hidden bg-card">
                 <img
-                  src={sekharAvatar}
+                  src={sekharLogo}
                   alt="Graduate"
                   className="w-full h-full object-cover"
                 />
