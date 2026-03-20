@@ -21,17 +21,17 @@ const TestimonialsSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="testimonials" className="py-20 px-5 relative">
+    <section id="testimonials" className="py-20 lg:py-28 px-5 lg:px-8 relative">
       <div className="section-divider w-full absolute top-0 left-0" />
 
-      <div className="max-w-lg mx-auto">
+      <div className="max-w-4xl mx-auto">
         {/* Video testimonial */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full aspect-video rounded-2xl mb-6 flex items-center justify-center overflow-hidden card-elevated cursor-pointer group"
+          className="relative w-full max-w-2xl mx-auto aspect-video rounded-2xl mb-6 flex items-center justify-center overflow-hidden card-elevated cursor-pointer group"
         >
           <div className="text-center relative z-10">
             <div className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center mx-auto mb-4 glow-button group-hover:scale-110 transition-transform duration-300">
@@ -56,16 +56,39 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mt-10 mb-8"
         >
-          <h3 className="text-xl font-bold text-foreground mb-2">
+          <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-2">
             What Students Talk About Us
           </h3>
           <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">More Success Stories</p>
         </motion.div>
 
-        {/* Horizontal scroll testimonials */}
+        {/* Desktop: grid, Mobile: horizontal scroll */}
+        <div className="hidden md:grid md:grid-cols-3 gap-5">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="rounded-2xl p-6 card-elevated"
+            >
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                "{t.text}"
+              </p>
+              <div className="flex items-center gap-3 pt-4 border-t border-border/30">
+                <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">
+                  {t.name[0]}
+                </div>
+                <span className="text-sm font-semibold text-foreground">{t.name}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+          className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide md:hidden"
         >
           {testimonials.map((t, i) => (
             <motion.div

@@ -17,21 +17,21 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(-1);
 
   return (
-    <section id="faq" className="py-20 px-5 relative">
+    <section id="faq" className="py-20 lg:py-28 px-5 lg:px-8 relative">
       <div className="section-divider w-full absolute top-0 left-0" />
 
-      <div className="max-w-lg mx-auto">
+      <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-12"
+          className="text-center mb-12 lg:mb-16"
         >
           <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-3 font-medium">
             GOT QUESTIONS?
           </p>
-          <h2 className="text-2xl sm:text-3xl font-black text-foreground">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-foreground">
             Frequently Asked
             <br />
             <span className="text-primary">Questions</span>

@@ -8,11 +8,10 @@ const socialProof = [
 
 const AuthoritySection = () => {
   return (
-    <section id="authority" className="py-20 px-5 relative">
-      {/* Section divider */}
+    <section id="authority" className="py-20 lg:py-28 px-5 lg:px-8 relative">
       <div className="section-divider w-full absolute top-0 left-0" />
 
-      <div className="max-w-lg mx-auto">
+      <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -20,12 +19,12 @@ const AuthoritySection = () => {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-10"
         >
-          <p className="text-2xl sm:text-3xl font-bold leading-snug text-foreground">
+          <p className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-snug text-foreground">
             Teaching my{" "}
             <span className="text-primary font-black">6 YEARS</span>{" "}
             of experience in 3 months!
           </p>
-          <p className="text-muted-foreground text-sm mt-5 max-w-sm mx-auto leading-relaxed">
+          <p className="text-muted-foreground text-sm lg:text-base mt-5 max-w-lg mx-auto leading-relaxed">
             With years of proven success in content creation, freelancing, and building a thriving marketing agency, Sekhar will reveal the powerful secrets that can help you dominate the creative fields.
           </p>
           <a
@@ -36,7 +35,7 @@ const AuthoritySection = () => {
           </a>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-4 mt-10">
+        <div className="grid grid-cols-2 gap-4 lg:gap-6 mt-10 max-w-md lg:max-w-lg mx-auto">
           {socialProof.map((item, i) => (
             <motion.a
               key={i}
