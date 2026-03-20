@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 const PricingSection = () => {
   return (
-    <section id="pricing" className="py-24 px-5 relative overflow-hidden">
+    <section id="pricing" className="py-24 lg:py-32 px-5 lg:px-8 relative overflow-hidden">
       <div className="section-divider w-full absolute top-0 left-0" />
 
       {/* Background effects */}
@@ -27,7 +27,7 @@ const PricingSection = () => {
           <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-4 font-medium">
             WHAT'S YOUR INVESTMENT TO
           </p>
-          <h2 className="text-3xl sm:text-4xl font-black text-foreground leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight">
             Become a{" "}
             <span className="text-primary">Ultimate</span>
             <br />
@@ -42,13 +42,8 @@ const PricingSection = () => {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative rounded-3xl p-8 sm:p-10 overflow-hidden card-elevated text-center"
         >
-          {/* Top glow line */}
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-
-          {/* Money emoji */}
           <div className="text-5xl mb-6">💰</div>
-
-          {/* Price */}
           <div className="flex items-center justify-center gap-4 mb-2">
             <span className="text-base text-muted-foreground line-through decoration-destructive/50">
               ₹10,000
@@ -57,11 +52,9 @@ const PricingSection = () => {
               40% OFF
             </span>
           </div>
-
           <p className="text-6xl sm:text-7xl font-black text-foreground mb-10 tracking-tight">
             ₹5999
           </p>
-
           <a
             href="#"
             className="flex items-center justify-center gap-2 w-full max-w-sm mx-auto py-4 rounded-2xl bg-primary text-primary-foreground font-bold text-lg text-center glow-button group"

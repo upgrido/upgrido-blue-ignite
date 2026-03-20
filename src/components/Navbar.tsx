@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-lg rounded-2xl px-5 py-3 flex items-center justify-between transition-all duration-700 ${
+      className={`fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-4xl rounded-2xl px-5 lg:px-8 py-3 flex items-center justify-between transition-all duration-700 ${
         scrolled
           ? "bg-background/70 backdrop-blur-2xl border border-border/40 glow-navbar"
           : "bg-background/40 backdrop-blur-lg border border-transparent"
@@ -31,9 +31,29 @@ const Navbar = () => {
         Upgrido
       </a>
 
+      {/* Desktop links */}
+      <div className="hidden md:flex items-center gap-1">
+        {links.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            className="px-3.5 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium rounded-xl hover:bg-secondary/40"
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="#pricing"
+          className="ml-3 px-5 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm glow-button"
+        >
+          Join Now
+        </a>
+      </div>
+
+      {/* Mobile menu button */}
       <button
         onClick={() => setMenuOpen(!menuOpen)}
-        className="w-9 h-9 rounded-xl bg-secondary/80 border border-border/40 flex items-center justify-center text-foreground hover:bg-secondary transition-all duration-200"
+        className="md:hidden w-9 h-9 rounded-xl bg-secondary/80 border border-border/40 flex items-center justify-center text-foreground hover:bg-secondary transition-all duration-200"
         aria-label="Toggle menu"
       >
         {menuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -42,7 +62,6 @@ const Navbar = () => {
       <AnimatePresence>
         {menuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -55,7 +74,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -8, scale: 0.96 }}
               transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-              className="absolute top-14 right-0 w-56 bg-card/95 backdrop-blur-2xl rounded-2xl p-3 card-elevated"
+              className="absolute top-14 right-0 w-56 bg-card/95 backdrop-blur-2xl rounded-2xl p-3 card-elevated md:hidden"
             >
               {links.map((link) => (
                 <a

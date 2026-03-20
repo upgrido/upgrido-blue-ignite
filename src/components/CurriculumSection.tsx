@@ -44,18 +44,18 @@ const modules = [
 
 const CurriculumSection = () => {
   return (
-    <section id="curriculum" className="py-20 px-5 relative">
+    <section id="curriculum" className="py-20 lg:py-28 px-5 lg:px-8 relative">
       <div className="section-divider w-full absolute top-0 left-0" />
 
-      <div className="max-w-lg mx-auto">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-12"
+          className="text-center mb-12 lg:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground leading-snug">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground leading-snug">
             What you will{" "}
             <span className="text-primary font-black">learn</span> in
             <br />
@@ -68,7 +68,7 @@ const CurriculumSection = () => {
           </h2>
         </motion.div>
 
-        <div className="space-y-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
           {modules.map((mod, i) => (
             <motion.div
               key={mod.num}
@@ -88,7 +88,7 @@ const CurriculumSection = () => {
                 <span className="text-4xl font-black text-muted-foreground/20 leading-none select-none">
                   {mod.num}
                 </span>
-                <h3 className="text-base font-bold text-foreground whitespace-pre-line leading-snug pt-1">
+                <h3 className="text-base lg:text-lg font-bold text-foreground whitespace-pre-line leading-snug pt-1">
                   {mod.title}
                 </h3>
               </div>
