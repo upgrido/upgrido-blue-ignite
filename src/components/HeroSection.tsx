@@ -93,9 +93,11 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             whileHover={{ scale: 1.015 }}
-            className="relative w-full md:flex-1 md:max-w-md lg:max-w-lg rounded-2xl overflow-hidden mt-8 md:mt-0 card-elevated"
+            className="relative w-full md:flex-1 md:max-w-md lg:max-w-lg rounded-2xl overflow-hidden mt-8 md:mt-0 card-elevated cursor-pointer group"
+            onClick={toggleMute}
           >
             <video
+              ref={videoRef}
               src="https://res.cloudinary.com/dz4hlunuh/video/upload/q_auto,f_auto/v1774061837/Web_Main_Video_With_Sfx_And_Music_Draft_02_fflgwo.mp4"
               autoPlay
               muted
@@ -103,6 +105,21 @@ const HeroSection = () => {
               playsInline
               className="w-full aspect-video object-cover"
             />
+            {/* Mute/unmute overlay */}
+            <div className="absolute bottom-3 right-3 flex items-center gap-1.5 bg-background/70 backdrop-blur-sm rounded-full px-3 py-1.5 border border-border/30 opacity-80 group-hover:opacity-100 transition-opacity duration-200">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={isMuted ? "muted" : "unmuted"}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.8, opacity: 0 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  {isMuted ? <VolumeX size={14} className="text-muted-foreground" /> : <Volume2 size={14} className="text-foreground" />}
+                </motion.div>
+              </AnimatePresence>
+              {isMuted && <span className="text-[10px] text-muted-foreground font-medium">Tap for sound</span>}
+            </div>
           </motion.div>
         </div>
       </div>
