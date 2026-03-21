@@ -82,18 +82,16 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             whileHover={{ scale: 1.015 }}
-            className="relative w-full md:flex-1 md:max-w-md lg:max-w-lg rounded-2xl overflow-hidden mt-8 md:mt-0 group cursor-pointer card-elevated"
+            className="relative w-full md:flex-1 md:max-w-md lg:max-w-lg rounded-2xl overflow-hidden mt-8 md:mt-0 card-elevated"
           >
-            <img
-              src={videoThumbnail}
-              alt="Video Editing Course Preview"
+            <video
+              src="https://res.cloudinary.com/dz4hlunuh/video/upload/q_auto,f_auto/v1774061837/Web_Main_Video_With_Sfx_And_Music_Draft_02_fflgwo.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
               className="w-full aspect-video object-cover"
             />
-            <div className="absolute inset-0 bg-background/40 flex items-center justify-center group-hover:bg-background/25 transition-all duration-500">
-              <div className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center glow-button backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
-                <Play size={24} className="text-primary-foreground ml-0.5" fill="currentColor" />
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
