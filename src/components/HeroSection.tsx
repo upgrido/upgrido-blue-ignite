@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { Play, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import sekharLogo from "@/assets/sekhar-logo.png";
-import videoThumbnail from "@/assets/video-thumbnail.jpg";
 import FloatingIcons from "@/components/FloatingIcons";
 
 const HeroSection = () => {
