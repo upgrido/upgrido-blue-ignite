@@ -8,8 +8,12 @@ const HeroSection = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center px-5 lg:px-8 pt-28 pb-16 lg:pt-32 lg:pb-24 relative overflow-hidden">
       {/* Ambient background glow */}
+      {/* Ambient background glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-primary/8 blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
+
+      {/* Floating 3D Icons */}
+      <FloatingIcons />
 
       <div className="max-w-5xl mx-auto w-full relative z-10">
         {/* Desktop: 2-column, Mobile: stacked */}
