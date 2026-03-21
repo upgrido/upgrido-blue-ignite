@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import sekharLogo from "@/assets/sekhar-logo.png";
 
 const socialProof = [
-  { name: "sekhar.polinaa", platform: "Instagram", count: "65.9k Followers", link: "https://www.instagram.com/sekhar.polinaa?igsh=ajJsNWllY2J6dWVo" },
-  { name: "sekhar.polinaa", platform: "YouTube", count: "846K Subscribers", link: "https://youtube.com/@sekharpolinaa?si=Zf9iLBu8iRz5aNmL" },
+  { name: "sekhar.polinaa", platform: "Instagram", count: "160k+ Followers", link: "https://www.instagram.com/sekhar.polinaa?igsh=ajJsNWllY2J6dWVo" },
+  { name: "sekhar.polinaa", platform: "YouTube", count: "2k+ Subscribers", link: "https://youtube.com/@sekharpolinaa?si=Zf9iLBu8iRz5aNmL" },
 ];
 
 const AuthoritySection = () => {
