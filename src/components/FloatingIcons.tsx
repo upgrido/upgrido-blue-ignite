@@ -1,9 +1,8 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useCallback } from "react";
 import { Camera } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-// SVG brand icons as inline components
 const AeIcon = () => (
   <svg viewBox="0 0 32 32" fill="none" className="w-full h-full">
     <rect width="32" height="32" rx="6" fill="#00005B" />
@@ -50,67 +49,86 @@ const InstagramIcon = () => (
 interface FloatingIcon {
   id: string;
   icon: React.ReactNode;
-  // Position as % from section edges
+  // Desktop positions (closer to content)
   x: string;
   y: string;
+  // Mobile positions
+  mx: string;
+  my: string;
   size: number;
   mobileSize: number;
   opacity: number;
+  mobileOpacity: number;
   blur: boolean;
-  depth: number; // 1 = background, 2 = mid, 3 = foreground
+  depth: number;
   floatDuration: number;
   floatDelay: number;
   rotation: number;
+  hideOnMobile?: boolean;
 }
 
 const icons: FloatingIcon[] = [
   {
     id: "ae",
     icon: <AeIcon />,
-    x: "3%", y: "18%",
-    size: 48, mobileSize: 28,
-    opacity: 0.7, blur: false, depth: 2,
-    floatDuration: 5, floatDelay: 0, rotation: -12,
+    x: "12%", y: "22%",
+    mx: "5%", my: "15%",
+    size: 52, mobileSize: 30,
+    opacity: 0.9, mobileOpacity: 0.75,
+    blur: false, depth: 3,
+    floatDuration: 5, floatDelay: 0, rotation: -8,
   },
   {
     id: "pr",
     icon: <PrIcon />,
-    x: "88%", y: "12%",
-    size: 44, mobileSize: 26,
-    opacity: 0.35, blur: true, depth: 1,
-    floatDuration: 6.5, floatDelay: 1.2, rotation: 8,
+    x: "78%", y: "16%",
+    mx: "80%", my: "12%",
+    size: 46, mobileSize: 26,
+    opacity: 0.45, mobileOpacity: 0.4,
+    blur: true, depth: 1,
+    floatDuration: 6.5, floatDelay: 1.2, rotation: 6,
   },
   {
     id: "ps",
     icon: <PsIcon />,
-    x: "7%", y: "70%",
-    size: 40, mobileSize: 24,
-    opacity: 0.4, blur: true, depth: 1,
-    floatDuration: 7, floatDelay: 0.8, rotation: 15,
+    x: "15%", y: "68%",
+    mx: "8%", my: "78%",
+    size: 44, mobileSize: 26,
+    opacity: 0.5, mobileOpacity: 0.45,
+    blur: true, depth: 1,
+    floatDuration: 7, floatDelay: 0.8, rotation: 12,
+    hideOnMobile: true,
   },
   {
     id: "yt",
     icon: <YoutubeIcon />,
-    x: "92%", y: "55%",
-    size: 50, mobileSize: 30,
-    opacity: 0.75, blur: false, depth: 3,
-    floatDuration: 4.5, floatDelay: 0.3, rotation: -6,
+    x: "82%", y: "52%",
+    mx: "82%", my: "60%",
+    size: 54, mobileSize: 32,
+    opacity: 0.9, mobileOpacity: 0.7,
+    blur: false, depth: 3,
+    floatDuration: 4.5, floatDelay: 0.3, rotation: -5,
   },
   {
     id: "ig",
     icon: <InstagramIcon />,
-    x: "85%", y: "80%",
-    size: 38, mobileSize: 22,
-    opacity: 0.3, blur: true, depth: 1,
-    floatDuration: 6, floatDelay: 2, rotation: 20,
+    x: "75%", y: "78%",
+    mx: "75%", my: "80%",
+    size: 42, mobileSize: 24,
+    opacity: 0.4, mobileOpacity: 0.35,
+    blur: true, depth: 1,
+    floatDuration: 6, floatDelay: 2, rotation: 15,
+    hideOnMobile: true,
   },
   {
     id: "camera",
     icon: <Camera className="w-full h-full text-primary" />,
-    x: "12%", y: "42%",
-    size: 42, mobileSize: 24,
-    opacity: 0.6, blur: false, depth: 2,
-    floatDuration: 5.5, floatDelay: 1.5, rotation: -18,
+    x: "20%", y: "45%",
+    mx: "6%", my: "55%",
+    size: 46, mobileSize: 28,
+    opacity: 0.8, mobileOpacity: 0.65,
+    blur: false, depth: 2,
+    floatDuration: 5.5, floatDelay: 1.5, rotation: -14,
   },
 ];
 
@@ -119,7 +137,7 @@ const FloatingIcons = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springConfig = { stiffness: 50, damping: 30, mass: 1 };
+  const springConfig = { stiffness: 40, damping: 25, mass: 1.2 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
@@ -137,9 +155,11 @@ const FloatingIcons = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [handleMouseMove, isMobile]);
 
+  const visibleIcons = isMobile ? icons.filter((i) => !i.hideOnMobile) : icons;
+
   return (
     <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
-      {icons.map((item) => (
+      {visibleIcons.map((item) => (
         <FloatingIconItem
           key={item.id}
           item={item}
@@ -160,37 +180,46 @@ interface FloatingIconItemProps {
 }
 
 const FloatingIconItem = ({ item, smoothX, smoothY, isMobile }: FloatingIconItemProps) => {
-  const parallaxStrength = item.depth * 8;
-  const px = useTransform(smoothX, (v) => isMobile ? 0 : v * parallaxStrength);
-  const py = useTransform(smoothY, (v) => isMobile ? 0 : v * parallaxStrength);
+  const parallaxStrength = item.depth * 10;
+  const px = useTransform(smoothX, (v) => (isMobile ? 0 : v * parallaxStrength));
+  const py = useTransform(smoothY, (v) => (isMobile ? 0 : v * parallaxStrength));
 
   const size = isMobile ? item.mobileSize : item.size;
+  const opacity = isMobile ? item.mobileOpacity : item.opacity;
+  const posX = isMobile ? item.mx : item.x;
+  const posY = isMobile ? item.my : item.y;
 
-  const glowColor = item.id === "yt" ? "rgba(255,0,0,0.3)" :
-                    item.id === "ig" ? "rgba(225,48,108,0.3)" :
-                    "rgba(99,132,255,0.35)";
+  const glowColor =
+    item.id === "yt"
+      ? "rgba(255,0,0,0.4)"
+      : item.id === "ig"
+      ? "rgba(225,48,108,0.4)"
+      : "hsl(217 92% 58% / 0.5)";
+
+  const glowStrong = `drop-shadow(0 0 8px ${glowColor}) drop-shadow(0 0 24px ${glowColor})`;
+  const glowSoft = `drop-shadow(0 0 5px ${glowColor})`;
 
   return (
     <motion.div
       className="absolute"
       style={{
-        left: item.x,
-        top: item.y,
+        left: posX,
+        top: posY,
         x: px,
         y: py,
         width: size,
         height: size,
       }}
-      initial={{ opacity: 0, scale: 0.5 }}
+      initial={{ opacity: 0, scale: 0.4 }}
       animate={{
-        opacity: item.opacity,
+        opacity: opacity,
         scale: 1,
-        y: [0, -10, 0, 6, 0],
-        rotate: [item.rotation, item.rotation + 4, item.rotation - 3, item.rotation],
+        y: [0, -8, 0, 5, 0],
+        rotate: [item.rotation, item.rotation + 3, item.rotation - 2, item.rotation],
       }}
       transition={{
-        opacity: { duration: 0.8, delay: item.floatDelay + 0.5 },
-        scale: { duration: 0.6, delay: item.floatDelay + 0.5 },
+        opacity: { duration: 0.7, delay: item.floatDelay + 0.6 },
+        scale: { duration: 0.5, delay: item.floatDelay + 0.6 },
         y: {
           duration: item.floatDuration,
           repeat: Infinity,
@@ -198,7 +227,7 @@ const FloatingIconItem = ({ item, smoothX, smoothY, isMobile }: FloatingIconItem
           delay: item.floatDelay,
         },
         rotate: {
-          duration: item.floatDuration * 1.3,
+          duration: item.floatDuration * 1.4,
           repeat: Infinity,
           ease: "easeInOut",
           delay: item.floatDelay,
@@ -206,11 +235,9 @@ const FloatingIconItem = ({ item, smoothX, smoothY, isMobile }: FloatingIconItem
       }}
     >
       <div
-        className={item.blur ? "blur-[1.5px]" : ""}
+        className={item.blur && !isMobile ? "blur-[1px]" : ""}
         style={{
-          filter: item.blur
-            ? `blur(1.5px) drop-shadow(0 0 6px ${glowColor})`
-            : `drop-shadow(0 0 10px ${glowColor}) drop-shadow(0 0 20px ${glowColor})`,
+          filter: item.blur && !isMobile ? glowSoft : glowStrong,
         }}
       >
         {item.icon}
