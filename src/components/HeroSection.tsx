@@ -5,6 +5,16 @@ import sekharLogo from "@/assets/sekhar-logo.png";
 import FloatingIcons from "@/components/FloatingIcons";
 
 const HeroSection = () => {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = useCallback(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  }, []);
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center px-5 lg:px-8 pt-28 pb-16 lg:pt-32 lg:pb-24 relative overflow-hidden">
       {/* Ambient background glow */}
