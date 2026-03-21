@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useState, useRef, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Volume2, VolumeX } from "lucide-react";
 import sekharLogo from "@/assets/sekhar-logo.png";
 import FloatingIcons from "@/components/FloatingIcons";
 
