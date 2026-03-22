@@ -136,33 +136,39 @@ const VideoStoryTimeline = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      {/* Subtle glow background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[60%] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
+
       {/* Gradient fade edges */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24 z-10 bg-gradient-to-r from-background to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24 z-10 bg-gradient-to-l from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 z-10 bg-gradient-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 z-10 bg-gradient-to-l from-background to-transparent" />
 
       {/* Carousel */}
       <div
         ref={emblaRef}
         className="overflow-hidden cursor-grab active:cursor-grabbing"
       >
-        <div className="flex gap-5 sm:gap-6 lg:gap-7" style={{ willChange: "transform" }}>
+        <div
+          className="flex gap-5 sm:gap-6 lg:gap-7"
+          style={{ willChange: "transform", transform: "translate3d(0,0,0)" }}
+        >
           {stories.map((story, i) => {
             const isActive = i === activeIndex;
             return (
               <div
                 key={i}
-                className="flex-shrink-0 w-[80vw] sm:w-[45vw] lg:w-[30vw] xl:w-[26vw] transition-all duration-500 ease-out"
+                className="flex-shrink-0 w-[82vw] sm:w-[44vw] lg:w-[29vw] xl:w-[25vw] transition-all duration-500 ease-out"
                 style={{
-                  transform: isActive ? "scale(1.06)" : "scale(0.92)",
-                  opacity: isActive ? 1 : 0.55,
-                  filter: isActive ? "brightness(1.1)" : "brightness(0.7)",
+                  transform: isActive ? "scale(1.07)" : "scale(0.9)",
+                  opacity: isActive ? 1 : 0.5,
+                  filter: isActive ? "brightness(1.1)" : "brightness(0.65)",
                 }}
               >
                 <div
-                  className={`rounded-[18px] overflow-hidden border bg-card/60 backdrop-blur-md transition-shadow duration-500 ${
+                  className={`rounded-[18px] overflow-hidden border backdrop-blur-md transition-shadow duration-500 bg-card/60 ${
                     isActive
-                      ? "border-primary/40 shadow-[0_0_40px_-8px_hsl(var(--primary)/0.4)]"
-                      : "border-border/30 shadow-none"
+                      ? "border-primary/40 shadow-[0_0_50px_-10px_hsl(var(--primary)/0.45)]"
+                      : "border-border/20 shadow-none"
                   }`}
                 >
                   {/* Video 16:9 */}
@@ -174,6 +180,7 @@ const VideoStoryTimeline = () => {
                       playsInline
                       preload="metadata"
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     >
                       <source src={story.webm} type="video/webm" />
                       <source src={story.mp4} type="video/mp4" />
@@ -198,21 +205,6 @@ const VideoStoryTimeline = () => {
             );
           })}
         </div>
-      </div>
-
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-1.5 mt-5">
-        {stories.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => emblaApi?.scrollTo(i)}
-            className={`h-1.5 rounded-full transition-all duration-400 ${
-              i === activeIndex
-                ? "w-6 bg-primary shadow-[0_0_8px_hsl(var(--primary)/0.6)]"
-                : "w-1.5 bg-muted-foreground/30"
-            }`}
-          />
-        ))}
       </div>
     </div>
   );
