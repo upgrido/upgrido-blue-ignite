@@ -28,6 +28,8 @@ const AuthoritySection = () => {
           <p className="text-muted-foreground text-sm lg:text-base mt-5 max-w-lg mx-auto leading-relaxed">
             With years of proven success in content creation, freelancing, and building a thriving marketing agency, Sekhar will reveal the powerful secrets that can help you dominate the creative fields.
           </p>
+          <VideoStoryTimeline />
+
           <a
             href="#pricing"
             className="inline-flex items-center gap-2 mt-7 px-8 py-3 rounded-2xl bg-primary text-primary-foreground font-semibold text-sm glow-button"
