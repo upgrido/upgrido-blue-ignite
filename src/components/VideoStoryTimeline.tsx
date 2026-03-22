@@ -180,7 +180,7 @@ const VideoStoryTimeline = () => {
                       playsInline
                       preload="metadata"
                       className="w-full h-full object-cover"
-                      loading="lazy"
+                      
                     >
                       <source src={story.webm} type="video/webm" />
                       <source src={story.mp4} type="video/mp4" />
